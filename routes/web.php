@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\App;
+use App\Http\Controllers\AuthController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +14,11 @@ use App\Http\Controllers\App;
 |
 */
 
-Route::get('/', [App::class, 'show']);
+Route::get('/', [App::class, 'showIndex'])->name('home');
+Route::get('/certificates', [App::class, 'showCertificates'])->name('certificates');
+Route::get('/certificate', [App::class, 'showCertificate'])->name('certificate');
+Route::get('/about', [App::class, 'showAbout'])->name('about');
 
-
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
+Route::post('/register_process', [AuthController::class, 'register'])->name('register_process');
