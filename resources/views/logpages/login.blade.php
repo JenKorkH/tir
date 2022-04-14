@@ -6,14 +6,21 @@
 
     <!--SIGN-IN-FORM---------------------------------->
     <main class="form-signin">
-        <form>
+        <form action="{{ route("login_process") }}" method="post">
+            @csrf
             <h1 class="h3 mb-3 fw-normal">Вход</h1>
             <div class="form-floating">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <input name="email" type="email" class="form-control" @error("email") style="border: 2px solid #dc3545" @enderror id="floatingInput" placeholder="name@example.com">
+                @error('email')
+                    <p style="color: #dc3545">{{ $message }}</p>
+                @enderror
                 <label for="floatingInput">Email</label>
             </div>
             <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <input name="password" type="password" class="form-control" @error("password") style="border: 2px solid #dc3545" @enderror id="floatingPassword" placeholder="Password">
+                @error('password')
+                    <p style="color: #dc3545">{{ $message }}</p>
+                @enderror
                 <label for="floatingPassword">Пароль</label>
             </div>
             <div class="checkbox mb-3" style="padding-top: 15px;">

@@ -733,3 +733,11 @@ header{
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.border-red{
+    border: 2px solid #dc3545;
+}
+
+.red{
+    color: #dc3545;
+}
