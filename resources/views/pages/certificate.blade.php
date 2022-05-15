@@ -82,7 +82,6 @@
         </div>
         <div class="border-bottom" style="margin: 50px 0;"></div>
     </div>
-
     <!--MODAL-RESERVE-FORM--------------------------->
     <div class="modal fade" id="reserve__form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -121,5 +120,4 @@
             </div>
         </div>
     </div>
-
 @endsection

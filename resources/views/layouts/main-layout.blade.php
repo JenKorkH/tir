@@ -42,25 +42,21 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Контакты</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropstart">
                         <a class="nav-link active dropdown-toggle" href="#" id="dropdown06" data-bs-toggle="dropdown" aria-expanded="false">Профиль</a>
                         <ul class="dropdown-menu" aria-labelledby="dropdown06">
                             @auth("web")
-
 
                                 <li><a class="dropdown-item" href="{{ route("login") }}">Профиль</a></li>
                                 <li><a class="dropdown-item" href="{{ route("logout") }}">Выйти</a></li>
                             @endauth
                             @guest("web")
 
-                                    <li><a class="dropdown-item" href="{{ route("login") }}">Войти</a></li>
+                                    <li><a class="dropdown-item" href="{{ route("login") }}">Вход</a></li>
+                                    <li><a class="dropdown-item" href="{{ route("register") }}">Регистрация</a></li>
                             @endguest
                         </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Корзина</a>
-                    </li>
-
                 </ul>
             </div>
         </div>

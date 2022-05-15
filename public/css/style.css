@@ -23,11 +23,16 @@ h1, h2, h3, h4, h5, h6{
 
 header{
     position: fixed;
-    background-color: #262626;
     font-size: 16px;
+    background-color: #262626;
     padding: 0 25px;
     width: 100%;
     z-index: 1000;
+}
+
+.header_fixed{
+    position: fixed;
+    transition: .9s linear position;
 }
 
 .nav-bar{
@@ -734,10 +739,284 @@ header{
     background-size: cover;
 }
 
-.border-red{
-    border: 2px solid #dc3545;
+.gun__about{
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
 }
 
-.red{
-    color: #dc3545;
+.gun__about-item{
+    display: flex;
+    line-height: 2em;
+    justify-content: space-between;
+}
+.about__title{
+    font-weight: 700;
+}
+.about__value{}
+
+.gun__text{
+
+    font-family: 'Open Sans', sans-serif;
+}
+
+.button__order{
+    margin: 15px 0 0 0;
+    height: 50px;
+}
+
+.gun__text-more{
+    margin: 50px 0 0;
+
+}
+
+.gun__text-more__item{
+    max-width: 33.3%;
+}
+
+.gun{
+    max-width: 200px;
+    margin: 0 auto;
+    border-radius: 15px;
+    margin-top: 20px;
+    -webkit-box-shadow: -1px -3px 12px -2px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: -1px -3px 12px -2px rgba(34, 60, 80, 0.2);
+    box-shadow: -1px -3px 12px -2px rgba(34, 60, 80, 0.2);
+    transition: .5s ease box-shadow;
+}
+
+.gun:hover{
+    -webkit-box-shadow: -1px -3px 19px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: -1px -3px 19px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: -1px -3px 19px 0px rgba(34, 60, 80, 0.2);
+    transition: .5s ease box-shadow;
+}
+
+.gun__image{
+    border-radius: 15px;
+    max-width: 200px;
+    background-color: #000;
+}
+
+.gun__title{
+    text-decoration: none;
+    padding: 20px  0;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 16px;
+    text-align: center;
+}
+
+.gun__description{
+    text-align: center;
+    text-decoration: none;
+    padding-bottom: 10px;
+}
+
+.gun__link{
+    text-decoration: none;
+    color: #000;
+}
+
+.gun__link:hover{
+    color: #000;
+}
+
+@media (max-width: 991px){
+    .gun__text{
+        margin-left: 0px;
+    }
+    .gun{
+        min-width: 400px;
+        max-width: 400px;
+    }
+    .gun__image{
+        min-width: 400px;
+        max-width: 400px;
+    }
+    .gun-all{
+        margin-right: 60px;
+    }
+}
+
+.gun-all__item{
+    display: flex;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    flex-direction: column;
+    font-size: 14px;
+    max-width: 350px;
+}
+.gun-all__image{
+    border: 3px solid #dc35468a;
+    max-width: 350px;
+    min-width: 350px;
+    margin-bottom: 10px;
+}
+.gun-all__title{
+    font-weight: 700;
+    font-size: 20px;
+}
+.gun-all__slug{
+    margin: 15px 0;
+}
+.gun-all__feature{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+@media (max-width: 991px){
+    .gun-all__item{
+        margin-right: 100px;
+        max-width: 280px;
+        min-width: 280px;
+    }
+    .gun-all__image{
+        max-width: 280px;
+        min-width: 280px;
+    }
+}
+
+@media (max-width: 767px){
+    .gun-all{
+        margin: 0 auto;
+    }
+    .gun-all__item{
+        margin: 0 auto;
+        margin-bottom: 80px;
+        max-width: 380px;
+        min-width: 380px;
+    }
+    .gun-all__image{
+        max-width: 380px;
+        min-width: 380px;
+    }
+    .gun-all__filter-item{
+
+    }
+
+}
+
+
+.gun-all{
+    -webkit-box-shadow: 0px 1px 4px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 0px 1px 4px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: 0px 1px 4px 0px rgba(34, 60, 80, 0.2);
+}
+
+.gun-all__filter{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    margin: 0 auto;
+    min-width: 220px;
+
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+}
+
+.gun-all__filter-item{
+    display: flex;
+    flex-direction: column;
+    margin: 10px 20px;
+}
+
+.gun-all__input{
+
+}
+
+.gun-all__input>input{
+    margin-right: 10px;
+}
+
+.gun-all__filter-buttons{
+    display: flex;
+
+}
+
+.gun-all__filter-buttons>button{
+
+    height: 35px;
+    font-size: 14px;
+}
+
+.profile__image{
+
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 50%;
+
+}
+
+.profile__image-inner{
+    width: auto;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.profile__image-change{
+    width: 250px;
+}
+
+.profile__image-change>button{
+    opacity: .6;
+    width: 100%;
+    transition: all .5s;
+}
+.profile__image-change>button:hover{
+    opacity: 1;
+    transition: all .5s;
+}
+
+.profile__inner{
+    margin-bottom: 65px;
+    line-height: 3em;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+}
+
+.profile__change{
+    margin: 20px 0;
+}
+
+.profile__table-certificate{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14z  px;
+    margin-bottom: 200px;
+}
+
+.profile__active-see{
+    text-decoration: none;
+    color: #000;
+}
+
+.profile__active-see:hover{
+    color: #000;
+}
+
+@media (max-width: 767px){
+    .profile__table-certificate{
+        font-family: 'Open Sans', sans-serif;
+        font-size: 12px;
+    }
+
+}
+
+@media (max-width: 767px){
+    .admin-main{
+
+        font-size: 12px;
+    }
+    .admin-main>h1{
+
+        font-size: 12px;
+    }
+}
+
+.gun__add-input{
+    margin-bottom: 20px;
 }

@@ -55,7 +55,7 @@
 
     <!--ADVANTAGE---------------------------------->
     <div class="container px-4 py-5" id="icon-grid">
-        <h2 class="pb-2" style="text-align: center; margin-bottom: 50px;">Преимущества нашего тира</h2>
+        <h2 class="title" style="text-align: center; margin-bottom: 50px;">Преимущества нашего тира</h2>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 g-3 py-5 border-top">
             <div class="col d-flex align-items-start">
                 <img class="feature__picture" src="/images/mainpage/icons/pistol.png" alt="">
@@ -217,8 +217,9 @@
         <div class="row">
             <button type="button" class="btn btn-danger button__more"  style="margin-top:90px;">Каталог сертификатов</button>
         </div>
+        <div class="border-bottom" style="margin: 50px 0;"></div>
     </div>
-    <div class="border-bottom" style="margin: 50px 0;"></div>
+
 
     <!--QUOTE--------------------------------------->
     <div class="quote">
@@ -235,7 +236,90 @@
             </div>
         </div>
     </div>
-    <div class="border-bottom" style="margin: 50px 0;"></div>
+    <div class="container">
+        <div class="border-bottom" style="margin: 50px 0;"></div>
+    </div>
+
+    <!----PROGRAMS------------------------------------>
+    <div class="container">
+
+        <h2 class="title" style="margin-top: 45px;">Учебные программы</h2>
+        <div class="row justify-content-center">
+            <div class="col-xl col-lg-5 col-md-10 col-sm-10 col-xs-10">
+                <div class="certificate">
+                    <img src="/images/mainpage/certificate/fs.jpg" alt="" class="certificate__image">
+                    <h2 class="certificate__title">first step</h2>
+                    <p class="certificate__description">Программа безопасного обращения с пистолетами калибра 9х19 мм</p>
+                    <div class="certificate__purchase">
+                        <div class="certificate__cost">9 900₴</div>
+                        <div class="certificate__count">
+                            <div class="certificate__count-text">Стрелков</div>
+                            <select class="certificate__count-selection">
+                                <option value="">1 человек</option>
+                                <option value="">2 человека</option>
+                                <option value="">3 человека</option>
+                                <option value="">4 человека</option>
+                            </select>
+                        </div>
+                        <div class="certificate__purchase-buttons">
+                            <button class="btn btn-secondary certificate__purchase-button" style="margin-right:10px;">Подробнее</button>
+                            <button class="btn btn-danger certificate__purchase-button" data-bs-toggle="modal" data-bs-target="#reserve__form">Купить</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl col-lg-5 col-md-10 col-sm-10 col-xs-10">
+                <div class="certificate">
+                    <img src="/images/mainpage/certificate/fs_.jpg" alt="" class="certificate__image">
+                    <h2 class="certificate__title">first step</h2>
+                    <p class="certificate__description">Программа безопасного обращения с пистолетами калибра 9х19 мм</p>
+                    <div class="certificate__purchase">
+                        <div class="certificate__cost">9 900₴</div>
+                        <div class="certificate__count">
+                            <div class="certificate__count-text">Стрелков</div>
+                            <select class="certificate__count-selection">
+                                <option value="">1 человек</option>
+                                <option value="">2 человека</option>
+                                <option value="">3 человека</option>
+                                <option value="">4 человека</option>
+                            </select>
+                        </div>
+                        <div class="certificate__purchase-buttons">
+                            <button class="btn btn-secondary certificate__purchase-button" style="margin-right:10px;">Подробнее</button>
+                            <button class="btn btn-danger certificate__purchase-button" data-bs-toggle="modal" data-bs-target="#reserve__form">Купить</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl col-lg-5 col-md-10 col-sm-10 col-xs-10">
+                <div class="certificate">
+                    <img src="/images/mainpage/certificate/nl.png" alt="" class="certificate__image">
+                    <h2 class="certificate__title">first step</h2>
+                    <p class="certificate__description">Программа безопасного обращения с пистолетами калибра 9х19 мм</p>
+                    <div class="certificate__purchase">
+                        <div class="certificate__cost">9 900₴</div>
+                        <div class="certificate__count">
+                            <div class="certificate__count-text">Стрелков</div>
+                            <select class="certificate__count-selection">
+                                <option value="">1 человек</option>
+                                <option value="">2 человека</option>
+                                <option value="">3 человека</option>
+                                <option value="">4 человека</option>
+                            </select>
+                        </div>
+                        <div class="certificate__purchase-buttons">
+                            <button class="btn btn-secondary certificate__purchase-button" style="margin-right:10px;">Подробнее</button>
+                            <button class="btn btn-danger certificate__purchase-button" data-bs-toggle="modal" data-bs-target="#reserve__form">Купить</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <button type="button" class="btn btn-danger button__more"  style="margin-top:90px;">Каталог програм</button>
+        </div>
+        <div class="border-bottom" style="margin: 50px 0;"></div>
+    </div>
 
     <!--INSTRUCTOR------------------------------------>
     <div class="container">
@@ -245,19 +329,19 @@
                 <img class="teacher__photo" src="/images/mainpage/personal/3.png" alt="">
                 <h4 class="teacher__item-title">Инструктор 3</h4>
                 <div class="teacher__text"><p>спортсмен-инструктор, КМСУ, судья ФПСУ</p></div>
-                <a type="button" class="btn btn-danger button__teaсher"  style="margin-top:90px;">Подробнее</a>
+
             </div>
             <div class="teacher__item">
                 <img class="teacher__photo" src="/images/mainpage/personal/4.png" alt="">
                 <h4 class="teacher__item-title">Инструктор 4</h4>
                 <div class="teacher__text"><p>спортсмен-инструктор, КМСУ, судья ФПСУ</p></div>
-                <a type="button" class="btn btn-danger button__teaсher"  style="margin-top:90px;">Подробнее</a>
+
             </div>
             <div class="teacher__item">
                 <img class="teacher__photo" src="/images/mainpage/personal/4.png" alt="">
                 <h4 class="teacher__item-title">Инструктор 4</h4>
                 <div class="teacher__text"><p>спортсмен-инструктор, КМСУ, судья ФПСУ</p></div>
-                <a type="button" class="btn btn-danger button__teaсher"  style="margin-top:90px;">Подробнее</a>
+
             </div>
         </div>
         <div class="border-bottom" style="margin: 50px 0;"></div>
@@ -285,7 +369,7 @@
                 <div class="col-lg-3 col-md-5 col-sm-10 col-xs-1">
                     <div class="input-group flex-nowrap reserve__input-number">
                         <span class="input-group-text" id="addon-wrapping">Ваше имя</span>
-                        <input type="text" class="form-control input-number" id="" placeholder="" aria-label="Username" aria-describedby="addon-wrapping">
+                        <input type="text" class="form-control" id="" placeholder="" aria-label="Username" aria-describedby="addon-wrapping">
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-5 col-sm-10 col-xs-1">
@@ -353,5 +437,4 @@
             </div>
         </div>
     </div>
-
 @endsection

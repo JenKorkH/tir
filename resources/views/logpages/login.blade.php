@@ -31,7 +31,7 @@
             <div class="border-bottom" style="margin: 10px"></div>
         </form>
         <div class="text-center">
-            <a href="" class="col-5 btn btn btn-danger" data-bs-toggle="modal" data-bs-target="#recover__form">Востановить</a>
+            <a href="{{ route("forgot") }}" class="col-5 btn btn btn-danger">Востановить</a>
             <a href="{{ route("register") }}" class="col-5 btn btn btn-danger">Регистрация</a>
         </div>
 
@@ -46,16 +46,20 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body"><hr>
-                    <form>
+                    <form action="{{ route("forgot_process") }}" method="post">
+                        @csrf
                         <div class="reserve__content">
                             <div class="reserve__instruction">Для восстановления пароля введите свой e-mail, который вы указали при регистрации</div>
                             <div class="reserve__input" style="margin: 20px 0;">
                                 <div class="input-group flex-nowrap reserve__input-email">
                                     <span class="input-group-text" id="addon-wrapping">Email</span>
-                                    <input type="text" class="form-control" id="" placeholder="example@gmail.com" aria-label="Username" aria-describedby="addon-wrapping">
+                                    <input type="text" class="form-control" id="" placeholder="example@gmail.com" aria-label="Username" aria-describedby="addon-wrapping"@error("password") style="border: 2px solid #dc3545" @enderror >
+                                    @error('email')
+                                        <p style="color: #dc3545">{{ $message }}</p>
+                                    @enderror
                                 </div>
                             </div>
-                            <button href="" class="col btn btn btn-danger w-100">Восстановить</button>
+                            <button class="col btn btn btn-danger w-100" type="submit">Восстановить</button>
                         </div>
                     </form>
                 </div><hr>

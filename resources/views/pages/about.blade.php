@@ -149,19 +149,16 @@
                 <img class="teacher__photo" src="/images/mainpage/personal/3.png" alt="">
                 <h4 class="teacher__item-title">Инструктор 3</h4>
                 <div class="teacher__text"><p>спортсмен-инструктор, КМСУ, судья ФПСУ</p></div>
-                <a type="button" class="btn btn-danger button__teaсher"  style="margin-top:90px;">Подробнее</a>
             </div>
             <div class="teacher__item">
                 <img class="teacher__photo" src="/images/mainpage/personal/4.png" alt="">
                 <h4 class="teacher__item-title">Инструктор 4</h4>
                 <div class="teacher__text"><p>спортсмен-инструктор, КМСУ, судья ФПСУ</p></div>
-                <a type="button" class="btn btn-danger button__teaсher"  style="margin-top:90px;">Подробнее</a>
             </div>
             <div class="teacher__item">
                 <img class="teacher__photo" src="/images/mainpage/personal/4.png" alt="">
                 <h4 class="teacher__item-title">Инструктор 4</h4>
                 <div class="teacher__text"><p>спортсмен-инструктор, КМСУ, судья ФПСУ</p></div>
-                <a type="button" class="btn btn-danger button__teaсher"  style="margin-top:90px;">Подробнее</a>
             </div>
         </div>
         <div class="border-bottom" style="margin: 50px 0;"></div>
