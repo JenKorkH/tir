@@ -1,6 +1,6 @@
 @extends('layouts.admin-layout')
 
-@section('title', 'Админ панель')
+@section('title', 'Адмін панель')
 
 @section('content')
 
@@ -8,83 +8,88 @@
     <main>
         <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;">
             <a href="{{ route('admin.index') }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none" style="margin: 0 auto;">
-                <span class="fs-4">Админ панель</span>
+                <span class="fs-4">Адмін панель</span>
             </a>
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
                 <div class="dropdown">
                     <a class="nav-link text-white dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown">
                         <img src="/images/rifle-color.png" alt="">
-                        Оружие
+                        Зброя
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-                        <li><a class="dropdown-item active" href="{{ route('admin.guns.index') }}">Все оружия</a></li>
-                        <li><a class="dropdown-item" href="#">Добавить</a></li>
+                        <li><a class="dropdown-item active" href="{{ route('admin.guns.index') }}">Вся зброя</a></li>
+                        <li><a class="dropdown-item" href="{{ route('admin.guns.create') }}">Додати зброю</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="{{ route('admin.brands.index') }}">Всі бренди </a></li>
+                        <li><a class="dropdown-item" href="{{ route('admin.brands.create') }}">Додати бренд </a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="{{ route('admin.category.index') }}">Всі категорії </a></li>
+                        <li><a class="dropdown-item" href="{{ route('admin.category.create') }}">Додати категорію </a></li>
                     </ul>
                 </div>
                 <div class="dropdown">
                     <a class="nav-link text-white dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown">
                         <img src="/images/certificate-color-2.png" alt="">
-                        Сертификаты
+                        Сертифікати
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-                        <li><a class="dropdown-item active" href="#">Все сертификаты</a></li>
-                        <li><a class="dropdown-item" href="#">Добавить</a></li>
+                        <li><a class="dropdown-item active" href="#">Всі сертифікати</a></li>
+                        <li><a class="dropdown-item" href="#">Додати сертифікат</a></li>
                     </ul>
                 </div>
                 <div class="dropdown">
                     <a class="nav-link text-white dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown">
                         <img src="/images/certificate-color.png" alt="">
-                        Программы
+                        Програми
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-                        <li><a class="dropdown-item active" href="#">Все программы</a></li>
-                        <li><a class="dropdown-item" href="#">Добавить</a></li>
+                        <li><a class="dropdown-item active" href="#">Всі програми</a></li>
+                        <li><a class="dropdown-item" href="#">Додати програму</a></li>
                     </ul>
                 </div>
                 <div class="dropdown">
                     <a class="nav-link text-white dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown">
                         <img src="/images/instructor-color.png" alt="">
-                        Инструктора
+                        Інструктори
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-                        <li><a class="dropdown-item active" href="#">Все инструктора</a></li>
-                        <li><a class="dropdown-item" href="#">Добавить</a></li>
+                        <li><a class="dropdown-item active" href="{{ route('admin.instructors.index') }}">Всі інструктори</a></li>
+                        <li><a class="dropdown-item" href="{{ route('admin.instructors.create') }}">Додати</a></li>
                     </ul>
                 </div>
                 <div class="dropdown">
                     <a class="nav-link text-white dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown">
                         <img src="/images/man-color.png" alt="">
-                        Пользователи
+                        Користувачі
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-                        <li><a class="dropdown-item active" href="#">Все пользователи</a></li>
-                        <li><a class="dropdown-item" href="#">Добавить</a></li>
+                        <li><a class="dropdown-item active" href="#">Всі користувачі</a></li>
                     </ul>
                 </div>
             </ul>
             <hr>
                 <a href="{{ route('admin.logout') }}" class="d-flex align-items-center text-white text-decoration-none">
-                    <img src="/images/logout.png" alt=""> <span style="padding-left: 10px;"> Выход</span>
+                    <img src="/images/logout.png" alt=""> <span style="padding-left: 10px;"> Вихід</span>
                 </a>
 
         </div>
         <div class="b-example-divider"></div>
         <div class="container-fluid" style="margin: 15px;">
-            <h3>Главная</h3>
+            <h3>Головна</h3>
             <div class="row" style="margin-bottom: 30px;">
                 <div class="col-xl col-lg-10 col-md-10 col-sm-10 col-xs-10" style="margin: 0 auto; margin-bottom:20px;">
                     <div class="admin__card" style="background-color: #17a2b8;">
                         <a href="{{ route('admin.guns.index') }}" class="admin__card-link">
                             <div class="admin__card-info">
-                                <div class="admin__card-count">18</div>
-                                <span>Оружий</span>
+                                <div class="admin__card-count">{{ $gunCount }}</div>
+                                <span>@if($gunCount > 5) Зброй @else Зброї @endif </span>
                             </div>
                             <div class="admin__card-image">
                                 <img src="/images/rifle.png" alt="" class="card__image">
                             </div>
                         </a>
-                        <div class="admin__card-all" style="background-color: #1a8b9c;"><a href="{{ route('admin.guns.index') }}">Все оружия</a></div>
+                        <div class="admin__card-all" style="background-color: #1a8b9c;"><a href="{{ route('admin.guns.index') }}">Вся зброя</a></div>
                     </div>
                 </div>
                 <div class="col-xl col-lg-10 col-md-10 col-sm-10 col-xs-10" style="margin: 0 auto; margin-bottom:20px;">
@@ -92,13 +97,13 @@
                         <a href="" class="admin__card-link">
                             <div class="admin__card-info">
                                 <div class="admin__card-count">5</div>
-                                <span>Сертификатов</span>
+                                <span>Сертифікатів</span>
                             </div>
                             <div class="admin__card-image">
                                 <img src="/images/certificate.png" alt="" class="card__image">
                             </div>
                         </a>
-                        <div class="admin__card-all" style="background-color: #169434;"><a href="">Все сертификаты</a></div>
+                        <div class="admin__card-all" style="background-color: #169434;"><a href="">Всі сертифікати</a></div>
                     </div>
                 </div>
                 <div class="col-xl col-lg-10 col-md-10 col-sm-10 col-xs-10" style="margin: 0 auto; margin-bottom:20px;">
@@ -106,13 +111,13 @@
                         <a href="" class="admin__card-link">
                             <div class="admin__card-info">
                                 <div class="admin__card-count">5</div>
-                                <span>Программ</span>
+                                <span>Програм</span>
                             </div>
                             <div class="admin__card-image">
                                 <img src="/images/document.png" alt="" class="card__image">
                             </div>
                         </a>
-                        <div class="admin__card-all" style="background-color: #e4b21b;"><a href="">Все программы</a></div>
+                        <div class="admin__card-all" style="background-color: #e4b21b;"><a href="">Всі програми</a></div>
                     </div>
                 </div>
             </div>
@@ -122,13 +127,13 @@
                         <a href="" class="admin__card-link">
                             <div class="admin__card-info">
                                 <div class="admin__card-count">100</div>
-                                <span>Пользователей</span>
+                                <span>Користувачів</span>
                             </div>
                             <div class="admin__card-image">
                                 <img src="/images/user.png" alt="" class="card__image">
                             </div>
                         </a>
-                        <div class="admin__card-all" style="background-color: #bd3127;"><a href="">Все пользователи</a></div>
+                        <div class="admin__card-all" style="background-color: #bd3127;"><a href="">Всі користувачі</a></div>
                     </div>
                 </div>
 
@@ -137,13 +142,13 @@
                         <a href="" class="admin__card-link">
                             <div class="admin__card-info">
                                 <div class="admin__card-count">13</div>
-                                <span>Инструкторов</span>
+                                <span>Інструкторів</span>
                             </div>
                             <div class="admin__card-image">
                                 <img src="/images/man.png" alt="" class="card__image">
                             </div>
                         </a>
-                        <div class="admin__card-all" style="background-color: #c5500d;"><a href="">Все инструктора</a></div>
+                        <div class="admin__card-all" style="background-color: #c5500d;"><a href="">Всі інструктори</a></div>
                     </div>
                 </div>
             </div>

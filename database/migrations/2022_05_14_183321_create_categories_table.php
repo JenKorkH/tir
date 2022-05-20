@@ -13,11 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('gunphotos', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('photo1')->default('')->nullable();
-            $table->string('photo2')->default('')->nullable();
-            $table->string('photo3')->default('')->nullable();
+            $table->string('name')->default('');
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gunphotos');
+        Schema::dropIfExists('categories');
     }
 };

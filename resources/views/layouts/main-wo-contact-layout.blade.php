@@ -18,50 +18,46 @@
 <header>
     <nav class="navbar navbar-expand-xl navbar-dark bg-dark justify-content-end" aria-label="Sixth navbar example">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{{ route("home") }}" style="font-size: 26px;">Название</a>
+            <a class="navbar-brand" href="{{ route("home") }}" style="font-size: 26px;">Назва</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample06" aria-controls="navbarsExample06" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarsExample06">
                 <ul class="navbar-nav  mb-2 mb-xl-0 mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link active " aria-current="page" href="{{ route("certificates") }}">Сертификаты</a>
+                        <a class="nav-link active " aria-current="page" href="{{ route("certificates") }}">Сертифікати</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Программы</a>
+                        <a class="nav-link active" aria-current="page" href="#">Програми</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Оружие</a>
+                        <a class="nav-link active" aria-current="page" href="#">Зброя</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Галерея</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ route("about") }}">О клубе</a>
+                        <a class="nav-link active" aria-current="page" href="{{ route("about") }}">Про клуб</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Контакты</a>
+                        <a class="nav-link active" aria-current="page" href="#">Контакти</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link active dropdown-toggle" href="#" id="dropdown06" data-bs-toggle="dropdown" aria-expanded="false">Профиль</a>
+                        <a class="nav-link active dropdown-toggle" href="#" id="dropdown06" data-bs-toggle="dropdown" aria-expanded="false">Профіль</a>
                         <ul class="dropdown-menu" aria-labelledby="dropdown06">
                             @auth("web")
 
 
-                                <li><a class="dropdown-item" href="{{ route("login") }}">Профиль</a></li>
-                                <li><a class="dropdown-item" href="{{ route("logout") }}">Выйти</a></li>
+                                <li><a class="dropdown-item" href="{{ route("login") }}">Профіль</a></li>
+                                <li><a class="dropdown-item" href="{{ route("logout") }}">Вийти</a></li>
                             @endauth
                             @guest("web")
 
-                                <li><a class="dropdown-item" href="{{ route("login") }}">Вход</a></li>
-                                <li><a class="dropdown-item" href="{{ route("register") }}">Регистрация</a></li>
+                                <li><a class="dropdown-item" href="{{ route("login") }}">Вхід</a></li>
+                                <li><a class="dropdown-item" href="{{ route("register") }}">Реєстрація</a></li>
                             @endguest
                         </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Корзина</a>
-                    </li>
-
                 </ul>
             </div>
         </div>
@@ -74,7 +70,7 @@
 <footer class="footer">
     <div class="footer_all_items">
         <div class="footer_item">
-            <div class="footer_title">Телефоны</div>
+            <div class="footer_title">Телефони</div>
             <div class="footer_number">
                 <p>+38(068)-868-40-50</p>
                 <p>+38(063)-352-09-23</p>
@@ -82,7 +78,7 @@
             </div>
         </div>
         <div class="footer_item">
-            <div class="footer_title">Мы в социальных сетях</div>
+            <div class="footer_title">Ми в соціальних мережах</div>
             <div class="footer_social_item">
                 <a href="#" class="footer_social_link"><img src="/images/mainpage/social/instagram.png" alt=""></a>
                 <a href="#" class="footer_social_link"><img src="/images/mainpage/social/telegram.png" alt=""></a>
@@ -91,7 +87,7 @@
         </div>
         <div class="footer_item">
             <div class="footer_title">Про сайт</div>
-            <div class="footer_about_text">Сайт предназначен для организации работы стрелкового-клуба или тира</div>
+            <div class="footer_about_text">Сайт призначений для організації работи стрілецько-спортивного клуба або тиру</div>
         </div>
     </div>
     <div class="footer_madeby">Made by Yevhenii Korchev</div>
@@ -104,7 +100,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.js"></script>
 <script src="/js/main.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
-<a href="#" class="scrollup" style="color: black;">Наверх</a>
+<a href="#" class="scrollup" style="color: black;">Уверх</a>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 </body>

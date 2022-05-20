@@ -1,6 +1,6 @@
 @extends('layouts.admin-layout')
 
-@section('title', isset($gun) ? 'Редгування зброї' : 'Додавання зброї')
+@section('title', isset($instructors) ? 'Редагування існтруктора' : 'Додавання інструктора')
 
 @section('content')
 
@@ -9,8 +9,8 @@
             <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('admin.index') }}" style="text-decoration: none; color: #000;">Адмін панель</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('admin.guns.index') }}" style="text-decoration: none; color: #000;">Зброя</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">@if(isset($gun))Редагування зброї @else Додавання зброї @endif</li>
+                    <li class="breadcrumb-item"><a href="{{ route('admin.instructors.index') }}" style="text-decoration: none; color: #000;">Категорії</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">@if(isset($instructors))Редагування інструктора @else Додавання інструктора @endif</li>
                 </ol>
             </nav>
         </div>
@@ -24,40 +24,6 @@
                 @if(isset($gun))
                     @method('PUT')
                 @endif
-                <div class="col-md-4">
-                    <label for="brand" class="form-label">Бренд</label>
-                    <select class="form-select" id="brand" name="brand_id" required>
-                        <option selected disabled value="">Оберіть...</option>
-                        @foreach($brands as $brand)
-                            <option value="{{ $brand->id }}" @if(isset($gun)) @if($gun->brand_id == $brand->id) selected @endif @endif> {{ $brand->name }} </option>
-                        @endforeach
-                    </select>
-                    <div class="invalid-feedback">
-                        Оберіть бренд.
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <label for="category" class="form-label">Тип зброї</label>
-                    <select class="form-select" id="category" name="category_id" required>
-                        <option selected disabled value="">Оберіть...</option>
-                        @foreach($categories as $category)
-                            <option value="{{ $category->id }}" @if(isset($gun)) @if($gun->category_id == $category->id) selected @endif @endif> {{ $category->name }} </option>
-                        @endforeach
-                    </select>
-                    <div class="invalid-feedback">
-                        Оберіть категорію.
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <label for="modelID" class="form-label">Модель</label>
-                    <input type="text" class="form-control" placeholder="Модель" id="modelID" name="model" required @if(isset($gun)) value="{{ $gun->name }}") @endif>
-                    <div class="valid-feedback">
-                        Все добре!
-                    </div>
-                </div>
-
-                <div style="margin-bottom: 20px;"></div>
-
                 <div class="col-md-5">
                     <label for="caliber" class="form-label">Калібр</label>
                     <input type="text" class="form-control" placeholder="Калібр" id="caliberID" name="caliber" required @if(isset($gun)) value="{{ $gun->caliber }}") @endif>

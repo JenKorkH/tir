@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AuthController extends Controller
 {
@@ -14,7 +15,11 @@ class AuthController extends Controller
 
     public function index()
     {
-        return view('admin.index');
+        $gunCount = DB::table('guns')->count();
+        //$certificateCount = DB::table('certificate')->count();
+        return view('admin.index', [
+            'gunCount' => $gunCount,
+        ]);
     }
 
     public function login(Request $request)

@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class GunsFormRequest extends FormRequest
+class BrandsFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -14,6 +14,7 @@ class GunsFormRequest extends FormRequest
     public function authorize()
     {
         return auth('admin')->check();
+
     }
 
     /**
@@ -24,7 +25,7 @@ class GunsFormRequest extends FormRequest
     public function rules()
     {
         return [
-
+            'brand_name' => ['required', 'unique:brands,name']
         ];
     }
 }

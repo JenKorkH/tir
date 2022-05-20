@@ -1,6 +1,6 @@
 @extends('layouts.admin-layout')
 
-@section('title', 'Зброя')
+@section('title', 'Категорії')
 
 @section('content')
 
@@ -13,7 +13,7 @@
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
                 <div class="dropdown">
-                    <a class="nav-link text-white dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" style="background-color: #dc3545;">
+                    <a class="nav-link text-white dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown">
                         <img src="/images/rifle-color.png" alt="">
                         Зброя
                     </a>
@@ -54,7 +54,7 @@
                         Інструктори
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-                        <li><a class="dropdown-item active" href="{{ route('admin.instructors.index') }}">Всі інструктори</a></li>
+                        <li><a class="dropdown-item active" href="{{ route('admin.instructors.index') }}">Всі инструктори</a></li>
                         <li><a class="dropdown-item" href="{{ route('admin.instructors.create') }}">Додати інструктора</a></li>
                     </ul>
                 </div>
@@ -65,59 +65,48 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
                         <li><a class="dropdown-item active" href="#">Всі користувачі</a></li>
-                        <li><a class="dropdown-item" href="#">Додати користувача</a></li>
                     </ul>
                 </div>
             </ul>
             <hr>
-            <a href="{{ route('admin.logout') }}" class="d-flex align-items-center text-white text-decoration-none">
-                <img src="/images/logout.png" alt=""> <span style="padding-left: 10px;"> Вихід</span>
-            </a>
+                <a href="{{ route('admin.logout') }}" class="d-flex align-items-center text-white text-decoration-none">
+                    <img src="/images/logout.png" alt=""> <span style="padding-left: 10px;"> Вихід</span>
+                </a>
 
         </div>
         <div class="b-example-divider"></div>
-
         <div class="container-fluid" style="">
-            <div style="padding-top: 5px; margin-bottom: 15px;"></div>
-            <h3>Вся зброя</h3>
+            <div style="padding-top: 5px; margin-bottom: 40px;"></div>
+            <h3>Всі категорії</h3>
 
             <div style="background-color: #fff; padding: 15px; border-radius: 5px;">
                 <table class="table table-striped">
                     <thead>
                     <tr>
                         <th scope="col">ID</th>
-                        <th scope="col">Тип</th>
-                        <th scope="col">Бренд</th>
-                        <th scope="col">Модель</th>
-                        <th scope="col">Калібр</th>
-                        <th scope="col">Магазин</th>
-                        <th scope="col">Вага с пт</th>
+                        <th scope="col">Категорія</th>
+                        <th scope="col">Додана</th>
                     </tr>
                     </thead>
-                    @foreach($guns as $gun)
+                    @foreach($categories as $category)
                         <tbody>
-                            <tr class="table__col">
-                                <th scope="row">{{ $gun->id }}</th>
-                                <td >{{ DB::table('categories')->where('id', $gun->category_id)->value('name') }}</td>
-                                <td >{{ DB::table('brands')->where('id', $gun->brand_id)->value('name') }}</td>
-                                <td>{{ $gun->name }}</td>
-                                <td>{{ $gun->caliber }}</td>
-                                <td>{{ $gun->clip }}</td>
-                                <td>{{ $gun->weight_bullet }}</td>
-                                <td style="text-align: right;">
-                                    <a  href="{{ route('admin.guns.edit', $gun->id) }}" type="button" class="btn btn-warning btn-sm text-white" style="margin-right: 10px; align-items: center;"><img src="/images/edit.png" alt=""> Редагувати</a>
-                                    <a type="button" class="btn btn-danger btn-sm text-white" style="margin-right: 10px; align-items: center;"><img src="/images/trash.png" alt=""> Видалити</a>
-                            </tr>
+                        <tr class="table__col">
+                            <th scope="row">{{ $category->id }}</th>
+                            <td >{{ $category->name }}</td>
+                            <td>{{ $category->created_at }}</td>
+                            <td style="text-align: right;">
+                                <a  href="{{ route('admin.category.edit', $category->id) }}" type="button" class="btn btn-warning btn-sm text-white" style="margin-right: 10px; align-items: center;"><img src="/images/edit.png" alt=""> Редагувати</a>
+                            </td>
+                        </tr>
                         </tbody>
                     @endforeach
 
                 </table>
                 <div>
-                    {{ $guns->links() }}
+                    {{ $categories->links() }}
                 </div>
             </div>
         </div>
-
     </main>
 
 @endsection

@@ -47,6 +47,19 @@ class DatabaseSeeder extends Seeder
         DB::table('brands')->insert([
             'name' => 'ППШ',
         ]);
+        //categories
+        DB::table('categories')->insert([
+            'name' => 'Автомат',
+        ]);
+        DB::table('categories')->insert([
+            'name' => 'Пістолет',
+        ]);
+        DB::table('categories')->insert([
+            'name' => 'Дробовик',
+        ]);
+        DB::table('categories')->insert([
+            'name' => 'Карабін',
+        ]);
         //admin_user
         DB::table('admin_users')->insert([
             'name' => 'Евгений',
