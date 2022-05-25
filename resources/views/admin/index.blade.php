@@ -34,8 +34,8 @@
                         Сертифікати
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-                        <li><a class="dropdown-item active" href="#">Всі сертифікати</a></li>
-                        <li><a class="dropdown-item" href="#">Додати сертифікат</a></li>
+                        <li><a class="dropdown-item active" href="{{ route('admin.certificates.index') }}">Всі сертифікати</a></li>
+                        <li><a class="dropdown-item" href="{{ route('admin.certificates.create') }}">Додати сертифікат</a></li>
                     </ul>
                 </div>
                 <div class="dropdown">
@@ -44,8 +44,8 @@
                         Програми
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-                        <li><a class="dropdown-item active" href="#">Всі програми</a></li>
-                        <li><a class="dropdown-item" href="#">Додати програму</a></li>
+                        <li><a class="dropdown-item active" href="{{ route('admin.programs.index') }}">Всі програми</a></li>
+                        <li><a class="dropdown-item" href="{{ route('admin.programs.create') }}">Додати програму</a></li>
                     </ul>
                 </div>
                 <div class="dropdown">
@@ -64,7 +64,7 @@
                         Користувачі
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-                        <li><a class="dropdown-item active" href="#">Всі користувачі</a></li>
+                        <li><a class="dropdown-item active" href="{{ route('admin.users.index') }}">Всі користувачі</a></li>
                     </ul>
                 </div>
             </ul>
@@ -94,10 +94,10 @@
                 </div>
                 <div class="col-xl col-lg-10 col-md-10 col-sm-10 col-xs-10" style="margin: 0 auto; margin-bottom:20px;">
                     <div class="admin__card" style="background-color: #28a745;">
-                        <a href="" class="admin__card-link">
+                        <a href="{{ route('admin.certificates.index') }}" class="admin__card-link">
                             <div class="admin__card-info">
-                                <div class="admin__card-count">5</div>
-                                <span>Сертифікатів</span>
+                                <div class="admin__card-count">{{ $certificatesCount }}</div>
+                                <span>@if($certificatesCount >=5)Сертифікатів @elseif($certificatesCount>1 && $certificatesCount<5) Сертифікати @else Сертифікат @endif</span>
                             </div>
                             <div class="admin__card-image">
                                 <img src="/images/certificate.png" alt="" class="card__image">
@@ -108,10 +108,10 @@
                 </div>
                 <div class="col-xl col-lg-10 col-md-10 col-sm-10 col-xs-10" style="margin: 0 auto; margin-bottom:20px;">
                     <div class="admin__card" style="background-color: #ffc107;">
-                        <a href="" class="admin__card-link">
+                        <a href="{{ route('admin.programs.index') }}" class="admin__card-link">
                             <div class="admin__card-info">
-                                <div class="admin__card-count">5</div>
-                                <span>Програм</span>
+                                <div class="admin__card-count">{{ $programsCount }}</div>
+                                <span>@if($programsCount >=5 || $programsCount == 0) Програм @elseif($programsCount>20) Програми @elseif($programsCount>1 && $programsCount<5) Програми @else Програма @endif</span>
                             </div>
                             <div class="admin__card-image">
                                 <img src="/images/document.png" alt="" class="card__image">
@@ -124,10 +124,10 @@
             <div class="row" style="margin-bottom: 30px; margin: 0 auto;">
                 <div class="col-xl col-lg-10 col-md-10 col-sm-10 col-xs-10" style="margin: 0 auto; margin-bottom:20px;">
                     <div class="admin__card" style="background-color: #be443b;">
-                        <a href="" class="admin__card-link">
+                        <a href="{{ route('admin.users.index') }}" class="admin__card-link">
                             <div class="admin__card-info">
-                                <div class="admin__card-count">100</div>
-                                <span>Користувачів</span>
+                                <div class="admin__card-count">{{ $userCount }}</div>
+                                <span>@if($gunCount > 1) Користувачів @else Користувач @endif </span>
                             </div>
                             <div class="admin__card-image">
                                 <img src="/images/user.png" alt="" class="card__image">
@@ -139,10 +139,10 @@
 
                 <div class="col-xl col-lg-10 col-md-10 col-sm-10 col-xs-10" style="margin: 0 auto; margin-bottom:20px;">
                     <div class="admin__card" style="background-color: #db570a;">
-                        <a href="" class="admin__card-link">
+                        <a href="{{ route('admin.instructors.index') }}" class="admin__card-link">
                             <div class="admin__card-info">
-                                <div class="admin__card-count">13</div>
-                                <span>Інструкторів</span>
+                                <div class="admin__card-count">{{ $instructorCount }}</div>
+                                <span>@if($instructorCount > 3) Інструкторів @elseif($instructorCount<=3 && $instructorCount>1) Інструктори @else Інструктор @endif</span>
                             </div>
                             <div class="admin__card-image">
                                 <img src="/images/man.png" alt="" class="card__image">

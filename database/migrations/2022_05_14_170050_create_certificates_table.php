@@ -13,11 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('instructors', function (Blueprint $table) {
+        Schema::create('certificates', function (Blueprint $table) {
             $table->id();
             $table->string('name')->default('');
-            $table->string('about')->default('');
+            $table->string('slug')->default('');
+            $table->float('price')->default(0);
+            $table->integer('maxPersons')->default(0);
+            $table->text('about');
+            $table->integer('duration')->default(30);
             $table->string('photo')->default('');
+            $table->boolean('state')->default(true);
             $table->timestamps();
         });
     }
@@ -29,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('instructors');
+        Schema::dropIfExists('certificates');
     }
 };

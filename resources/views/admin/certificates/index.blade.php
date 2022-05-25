@@ -1,6 +1,6 @@
 @extends('layouts.admin-layout')
 
-@section('title', 'Зброя')
+@section('title', 'Сертифікати')
 
 @section('content')
 
@@ -13,7 +13,7 @@
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
                 <div class="dropdown">
-                    <a class="nav-link text-white dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" style="background-color: #dc3545;">
+                    <a class="nav-link text-white dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown">
                         <img src="/images/rifle-color.png" alt="">
                         Зброя
                     </a>
@@ -29,7 +29,7 @@
                     </ul>
                 </div>
                 <div class="dropdown">
-                    <a class="nav-link text-white dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown">
+                    <a class="nav-link text-white dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" style="background-color: #dc3545;">
                         <img src="/images/certificate-color-2.png" alt="">
                         Сертифікати
                     </a>
@@ -44,7 +44,7 @@
                         Програми
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-                        <li><a class="dropdown-item active" href="{{ route('admin.programs.index') }}">Всі програми</a></li>
+                        <li><a class="dropdown-item active" href="{{ 'admin.programs.index' }}">Всі програми</a></li>
                         <li><a class="dropdown-item" href="{{ 'admin.programs.create' }}">Додати програму</a></li>
                     </ul>
                 </div>
@@ -78,39 +78,39 @@
 
         <div class="container-fluid" style="">
             <div style="padding-top: 5px; margin-bottom: 15px;"></div>
-            <h3>Вся зброя</h3>
+            <h3>Всі сертифікати</h3>
 
             <div style="background-color: #fff; padding: 15px; border-radius: 5px;">
                 <table class="table table-striped">
                     <thead>
                     <tr>
                         <th scope="col">ID</th>
-                        <th scope="col">Тип</th>
-                        <th scope="col">Бренд</th>
-                        <th scope="col">Модель</th>
-                        <th scope="col">Калібр</th>
-                        <th scope="col">Магазин</th>
-                        <th scope="col">Вага с пт</th>
+                        <th scope="col">Назва</th>
+                        <th scope="col">Слог</th>
+                        <th scope="col">Вартість</th>
+                        <th scope="col">Кіл-сть людей</th>
+                        <th scope="col">Опис</th>
+                        <th scope="col">Тривалість</th>
                     </tr>
                     </thead>
-                    @foreach($guns as $gun)
+                    @foreach($certificates as $certificate)
                         <tbody>
                             <tr class="table__col">
-                                <th scope="row">{{ $gun->id }}</th>
-                                <td >{{ DB::table('categories')->where('id', $gun->category_id)->value('name') }}</td>
-                                <td >{{ DB::table('brands')->where('id', $gun->brand_id)->value('name') }}</td>
-                                <td>{{ $gun->name }}</td>
-                                <td>{{ $gun->caliber }}</td>
-                                <td>{{ $gun->clip }}</td>
-                                <td>{{ $gun->weight_bullet }}</td>
+                                <th scope="row">{{ $certificate->id }}</th>
+                                <td >{{ $certificate->name }}</td>
+                                <td >{{ $certificate->slug }}</td>
+                                <td>{{ $certificate->price }}</td>
+                                <td>{{ $certificate->maxPersons }}</td>
+                                <td>{{ mb_strimwidth($certificate->about, 0, 20, '...') }}</td>
+                                <td>{{ $certificate->duration }}</td>
                                 <td style="text-align: right;">
-                                    <form method="post" action="{{ route('admin.changeStateGun', $gun->id) }}">
+                                    <form method="post" action="{{ route('admin.changeStateCertificate', $certificate->id) }}">
                                         @csrf
-                                        <button type="submit" class="btn @if($gun->state == true)btn-success @else btn-danger @endif btn-sm text-white" style="margin-right: 10px; align-items: center;"><img src="/images/active.png" alt=""> @if($gun->state == true)Активна @else Неактивна @endif</button>
+                                        <button type="submit" class="btn @if($certificate->state == true)btn-success @else btn-danger @endif btn-sm text-white" style="margin-right: 10px; align-items: center;"><img src="/images/active.png" alt=""> @if($certificate->state == true)Активний @else Неактивний @endif</button>
                                     </form>
                                 </td>
-                                <td style="text-align: right;">
-                                    <a  href="{{ route('admin.guns.edit', $gun->id) }}" type="button" class="btn btn-warning btn-sm text-white" style="margin-right: 10px; align-items: center;"><img src="/images/edit.png" alt=""> Редагувати</a>
+                                <td>
+                                    <a  href="{{ route('admin.certificates.edit', $certificate->id) }}" type="button" class="btn btn-warning btn-sm text-white" style="margin-right: 10px; align-items: center;"><img src="/images/edit.png" alt=""> Редагувати</a>
                                 </td>
                             </tr>
                         </tbody>
@@ -118,7 +118,7 @@
 
                 </table>
                 <div>
-                    {{ $guns->links() }}
+                    {{ $certificates->links() }}
                 </div>
             </div>
         </div>

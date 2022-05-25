@@ -30,7 +30,7 @@
             <div>
                 <p class="small text-muted">
                     <span class="font-medium">{{ $paginator->total() }}</span>
-                    {!! __('оружий') !!}
+                    {!! __('') !!}
                 </p>
             </div>
 

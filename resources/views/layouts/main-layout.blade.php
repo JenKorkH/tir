@@ -55,6 +55,9 @@
                                     <li><a class="dropdown-item" href="{{ route("login") }}">Вхід</a></li>
                                     <li><a class="dropdown-item" href="{{ route("register") }}">Реєстрація</a></li>
                             @endguest
+                            @auth("admin")
+                                    <li><a class="dropdown-item" href="{{ route("admin.index") }}">Адмін панель</a></li>
+                            @endauth
                         </ul>
                     </li>
                 </ul>

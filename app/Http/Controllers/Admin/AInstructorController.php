@@ -43,9 +43,13 @@ class AInstructorController extends Controller
         $request->validated();
 
         $instructor = new Instructor;
-        $instructor->name = $request->input('instructor_name');
-        $instructor->about = $request->input('instructor_about');
-        $instructor->photo = $request->input('instructor_photo');
+        $instructor->name = $request->input('name');
+        $instructor->about = $request->input('about');
+        if($request->has("photo")) {
+            $file = $request->file('photo');
+            $file = str_replace("instructor//", "", $file->store('instructor/', 'public'));
+            $instructor->photo = $file;
+        }
         $instructor->save();
 
         return redirect(route('admin.instructors.index'));
@@ -66,11 +70,14 @@ class AInstructorController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function edit($id)
     {
-        //
+        $instructors = Instructor::findOrFail($id);
+        return view('admin.instructors.add', [
+            "instructors" => $instructors
+        ]);
     }
 
     /**
@@ -78,11 +85,24 @@ class AInstructorController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
-    public function update(Request $request, $id)
+    public function update(InstructorsFormRequest $request, $id)
     {
-        //
+        $instructor = Instructor::findOrFail($id);
+        $instructor->name = $request->input('name');
+        $instructor->about = $request->input('about');
+        if($request->has("photo")) {
+            if($instructor->photo != '')
+            {
+                unlink(public_path("/storage/instructor/".$instructor->photo));
+            }
+            $file = $request->file('photo');
+            $file = str_replace("instructor//","" ,$file->store('instructor/', 'public'));
+            $instructor->photo = $file;
+        }
+        $instructor->save();
+        return redirect(route("admin.instructors.index"));
     }
 
     /**

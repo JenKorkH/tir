@@ -26,7 +26,7 @@
                 @endif
                 <div class="col-md-12">
                     <label for="nameID" class="form-label">ПІБ</label>
-                    <input type="text" class="form-control" placeholder="Іванов І.В." id="nameID" name="name" required @if(isset($instructors)) value="{{ $instructors->name }}") @endif>
+                    <input type="text" class="form-control" placeholder="Калібр" id="nameID" name="name" required @if(isset($instructors)) value="{{ $instructors->name }}") @endif>
                     <div class="valid-feedback">
                         Все добре!
                     </div>
@@ -34,13 +34,14 @@
                 <div style="margin-bottom: 20px;"></div>
                 <div class="col-md-8">
                     <label for="aboutID" class="form-label">Опис</label>
-                    <textarea class="form-control" rows="14" aria-label="With textarea" id="aboutID" name="about">@if(isset($instructors)){{ $instructors->about }}@endif</textarea>
+                    <textarea class="form-control" rows="14" aria-label="With textarea" id="aboutID" name="about">@if(isset($instructors)) {{ $instructors->about }} @endif</textarea>
                 </div>
 
                 <div class="col-md-4">
                     <label for="photoID" class="form-label">Фотографія</label>
                     <div></div>
-                    <img @if(isset($instructors) && $instructors->photo) src={{ asset("/storage/instructor/".$instructors->photo) }} @else src="" @endif class="img-thumbnail" alt="..." id="blah" style="min-width: 400px; max-width: 400px; max-height: 300px; min-height: 300px;">
+
+                    <img @if(isset($instructors) && $instructors->photo) src="{{ asset("/storage/app/public/instructor/".$instructors->photo)}} " @else src="" @endif class="img-thumbnail" alt="..." id="blah" style="min-width: 400px; max-width: 400px; max-height: 300px; min-height: 300px;">
                     <div style="margin-bottom: 20px"></div>
                     <input type="file" class="form-control" id="photoID" name="photo" >
                 </div>
@@ -48,7 +49,7 @@
                 <div style="margin-bottom: 20px;"></div>
 
                 <div class="col-8">
-                    <button class="btn btn-danger" type="submit">@if(isset($instructors))Редагувати @else Додати @endif</button>
+                    <button class="btn btn-danger" type="submit">Додати</button>
                 </div>
             </form>
         </div>

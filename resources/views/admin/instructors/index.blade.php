@@ -34,8 +34,8 @@
                         Сертифікати
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-                        <li><a class="dropdown-item active" href="#">Всі сертифікати</a></li>
-                        <li><a class="dropdown-item" href="#">Додати сертифікат</a></li>
+                        <li><a class="dropdown-item active" href="{{ route('admin.certificates.index') }}">Всі сертифікати</a></li>
+                        <li><a class="dropdown-item" href="{{ route('admin.certificates.create') }}">Додати сертифікат</a></li>
                     </ul>
                 </div>
                 <div class="dropdown">
@@ -44,12 +44,12 @@
                         Програми
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-                        <li><a class="dropdown-item active" href="#">Всі програми</a></li>
-                        <li><a class="dropdown-item" href="#">Додати програму</a></li>
+                        <li><a class="dropdown-item active" href="{{ route('admin.programs.index') }}">Всі програми</a></li>
+                        <li><a class="dropdown-item" href="{{ route('admin.programs.create') }}">Додати програму</a></li>
                     </ul>
                 </div>
                 <div class="dropdown">
-                    <a class="nav-link text-white dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown">
+                    <a class="nav-link text-white dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" style="background-color: #dc3545;">
                         <img src="/images/instructor-color.png" alt="">
                         Інструктори
                     </a>
@@ -64,7 +64,7 @@
                         Користувачі
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-                        <li><a class="dropdown-item active" href="#">Всі користувачі</a></li>
+                        <li><a class="dropdown-item active" href="{{ route('admin.users.index') }}">Всі користувачі</a></li>
                     </ul>
                 </div>
             </ul>
@@ -77,15 +77,16 @@
         <div class="b-example-divider"></div>
         <div class="container-fluid" style="">
             <div style="padding-top: 5px; margin-bottom: 40px;"></div>
-            <h3>Всі категорії</h3>
+            <h3>Всі інструктори</h3>
 
             <div style="background-color: #fff; padding: 15px; border-radius: 5px;">
                 <table class="table table-striped">
                     <thead>
                     <tr>
                         <th scope="col">ID</th>
-                        <th scope="col">Категорія</th>
-                        <th scope="col">Додана</th>
+                        <th scope="col">ПІБ</th>
+                        <th scope="col">Опис</th>
+                        <th scope="col">Доданий</th>
                     </tr>
                     </thead>
                     @foreach($instructors as $instructor)
@@ -93,6 +94,7 @@
                         <tr class="table__col">
                             <th scope="row">{{ $instructor->id }}</th>
                             <td >{{ $instructor->name }}</td>
+                            <td >{{ mb_strimwidth($instructor->about, 0, 60, '...') }}</td>
                             <td>{{ $instructor->created_at }}</td>
                             <td style="text-align: right;">
                                 <a  href="{{ route('admin.instructors.edit', $instructor->id) }}" type="button" class="btn btn-warning btn-sm text-white" style="margin-right: 10px; align-items: center;"><img src="/images/edit.png" alt=""> Редагувати</a>

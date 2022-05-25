@@ -21,7 +21,7 @@ return new class extends Migration
             $table->date('birthday')->default(date('2019-02-03'));;
             $table->string('email')->unique()->default('');
             $table->string('phone')->unique()->default('');
-            $table->binary('photo')->nullable();
+            $table->string('photo')->default('');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

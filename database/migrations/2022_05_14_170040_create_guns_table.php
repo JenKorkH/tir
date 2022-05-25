@@ -29,6 +29,7 @@ return new class extends Migration
             $table->float('barrel_length')->default(0);
             $table->float('barrel_cutting')->default(0);
             $table->text('about');
+            $table->boolean('state')->default(true);
             $table->timestamps();
         });
     }

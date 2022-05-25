@@ -19,7 +19,7 @@
     <main class="admin-main" style="flex-grow: 1;">
         <div class="container" style="font-family: 'Open Sans', sans-serif; ">
             <div class="border-bottom" style="margin-bottom: 40px;"></div>
-            <form method="POST" class="row needs-validation" action="{{ isset($gun)? route('admin.guns.update', $gun->id) : route('admin.guns.store') }}" style="margin: 0 auto;">
+            <form method="POST" class="row needs-validation" enctype="multipart/form-data" action="{{ isset($gun)? route('admin.guns.update', $gun->id) : route('admin.guns.store') }}" style="margin: 0 auto;" >
                 @csrf
                 @if(isset($gun))
                     @method('PUT')
@@ -50,10 +50,14 @@
                 </div>
                 <div class="col-md-4">
                     <label for="modelID" class="form-label">Модель</label>
-                    <input type="text" class="form-control" placeholder="Модель" id="modelID" name="model" required @if(isset($gun)) value="{{ $gun->name }}") @endif>
+                    <input type="text" class="form-control" placeholder="Модель" id="modelID" name="model" required @if(isset($gun)) value="{{ $gun->name }}") @endif
+                    @error("model") style="border: 2px solid #dc3545" @enderror>
                     <div class="valid-feedback">
                         Все добре!
                     </div>
+                    @error('model')
+                        <p style="color: #dc3545; padding-bottom: 10px;">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <div style="margin-bottom: 20px;"></div>
@@ -106,6 +110,15 @@
 
                 <div style="margin-bottom: 20px;"></div>
 
+                <div class="col-md-12">
+                    <label for="photoID" class="form-label">Завантажити</label>
+                    <input type="file" class="form-control" id="photoID" name="photos[]" multiple>
+                </div>
+
+                <div style="margin-bottom: 20px;"></div>
+
+                <div style="margin-bottom: 20px;"></div>
+
                 <div class="col-md-3">
                     <label for="barrel_lengthID" class="form-label">Довжина ствола</label>
                     <input type="number" class="form-control" id="barrel_lengthID" name="barrel_length" required required @if(isset($gun)) value="{{ $gun->barrel_length }}") @endif>
@@ -125,16 +138,55 @@
 
                 <div class="col-md-12">
                     <label for="aboutID" class="form-label">Опис</label>
-                    <textarea class="form-control" rows="10" aria-label="With textarea" id="aboutID" name="about">@if(isset($gun)) {{ $gun->about }} @endif</textarea>
+                    <textarea class="form-control" rows="6" aria-label="With textarea" id="aboutID" name="about">@if(isset($gun)){{ $gun->about }}@endif</textarea>
                 </div>
 
                 <div style="margin-bottom: 20px;"></div>
 
                 <div class="col-12">
-                    <button class="btn btn-danger" type="submit">Додати</button>
+                    <button class="btn btn-danger" type="submit">@if(isset($gun))Редагувати @else Додати @endif</button>
                 </div>
+                <div style="margin-bottom: 20px;"></div>
             </form>
         </div>
     </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+        function readURL(input) {
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $('#blah1').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        if (input.files && input.files[1]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                $('#blah2').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[1]);
+        }
+        if (input.files && input.files[2]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                $('#blah3').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[2]);
+        }
+
+        $("#photoID").change(function() {
+            readURL(this);
+        });
+    </script>
 
 @endsection

@@ -34,8 +34,8 @@
                         Сертифікати
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-                        <li><a class="dropdown-item active" href="#">Всі сертифікати</a></li>
-                        <li><a class="dropdown-item" href="#">Додати сертифікат</a></li>
+                        <li><a class="dropdown-item active" href="{{ route('admin.certificates.index') }}">Всі сертифікати</a></li>
+                        <li><a class="dropdown-item" href="{{ route('admin.certificates.create') }}">Додати сертифікат</a></li>
                     </ul>
                 </div>
                 <div class="dropdown">
@@ -44,8 +44,8 @@
                         Програми
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-                        <li><a class="dropdown-item active" href="#">Всі програми</a></li>
-                        <li><a class="dropdown-item" href="#">Додати програму</a></li>
+                        <li><a class="dropdown-item active" href="{{ 'admin.programs.index' }}">Всі програми</a></li>
+                        <li><a class="dropdown-item" href="{{ 'admin.programs.create' }}">Додати програму</a></li>
                     </ul>
                 </div>
                 <div class="dropdown">
@@ -64,7 +64,7 @@
                         Користувачі
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-                        <li><a class="dropdown-item active" href="#">Всі користувачі</a></li>
+                        <li><a class="dropdown-item active" href="{{ route('admin.users.index') }}">Всі користувачі</a></li>
                     </ul>
                 </div>
             </ul>

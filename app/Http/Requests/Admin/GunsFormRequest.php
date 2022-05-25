@@ -24,7 +24,7 @@ class GunsFormRequest extends FormRequest
     public function rules()
     {
         return [
-
+            'model' => ['required', 'unique:guns,name']
         ];
     }
 }

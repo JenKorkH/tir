@@ -1,6 +1,6 @@
 @extends('layouts.admin-layout')
 
-@section('title', 'Зброя')
+@section('title', 'Користувачі')
 
 @section('content')
 
@@ -13,7 +13,7 @@
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
                 <div class="dropdown">
-                    <a class="nav-link text-white dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" style="background-color: #dc3545;">
+                    <a class="nav-link text-white dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown">
                         <img src="/images/rifle-color.png" alt="">
                         Зброя
                     </a>
@@ -44,8 +44,8 @@
                         Програми
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-                        <li><a class="dropdown-item active" href="{{ route('admin.programs.index') }}">Всі програми</a></li>
-                        <li><a class="dropdown-item" href="{{ 'admin.programs.create' }}">Додати програму</a></li>
+                        <li><a class="dropdown-item active" href="#">Всі програми</a></li>
+                        <li><a class="dropdown-item" href="#">Додати програму</a></li>
                     </ul>
                 </div>
                 <div class="dropdown">
@@ -54,12 +54,12 @@
                         Інструктори
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-                        <li><a class="dropdown-item active" href="{{ route('admin.instructors.index') }}">Всі інструктори</a></li>
+                        <li><a class="dropdown-item active" href="{{ route('admin.instructors.index') }}">Всі инструктори</a></li>
                         <li><a class="dropdown-item" href="{{ route('admin.instructors.create') }}">Додати інструктора</a></li>
                     </ul>
                 </div>
                 <div class="dropdown">
-                    <a class="nav-link text-white dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown">
+                    <a class="nav-link text-white dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" style="background-color: #dc3545;">
                         <img src="/images/man-color.png" alt="">
                         Користувачі
                     </a>
@@ -69,60 +69,54 @@
                 </div>
             </ul>
             <hr>
-            <a href="{{ route('admin.logout') }}" class="d-flex align-items-center text-white text-decoration-none">
-                <img src="/images/logout.png" alt=""> <span style="padding-left: 10px;"> Вихід</span>
-            </a>
+                <a href="{{ route('admin.logout') }}" class="d-flex align-items-center text-white text-decoration-none">
+                    <img src="/images/logout.png" alt=""> <span style="padding-left: 10px;"> Вихід</span>
+                </a>
 
         </div>
         <div class="b-example-divider"></div>
-
         <div class="container-fluid" style="">
-            <div style="padding-top: 5px; margin-bottom: 15px;"></div>
-            <h3>Вся зброя</h3>
+            <div style="padding-top: 5px; margin-bottom: 40px;"></div>
+            <h3>Всі користувачі</h3>
 
             <div style="background-color: #fff; padding: 15px; border-radius: 5px;">
                 <table class="table table-striped">
                     <thead>
                     <tr>
                         <th scope="col">ID</th>
-                        <th scope="col">Тип</th>
-                        <th scope="col">Бренд</th>
-                        <th scope="col">Модель</th>
-                        <th scope="col">Калібр</th>
-                        <th scope="col">Магазин</th>
-                        <th scope="col">Вага с пт</th>
+                        <th scope="col">ПІБ</th>
+                        <th scope="col">Дата народження</th>
+                        <th scope="col">Пошта</th>
+                        <th scope="col">Номер</th>
                     </tr>
                     </thead>
-                    @foreach($guns as $gun)
+                    @foreach($users as $user)
                         <tbody>
-                            <tr class="table__col">
-                                <th scope="row">{{ $gun->id }}</th>
-                                <td >{{ DB::table('categories')->where('id', $gun->category_id)->value('name') }}</td>
-                                <td >{{ DB::table('brands')->where('id', $gun->brand_id)->value('name') }}</td>
-                                <td>{{ $gun->name }}</td>
-                                <td>{{ $gun->caliber }}</td>
-                                <td>{{ $gun->clip }}</td>
-                                <td>{{ $gun->weight_bullet }}</td>
-                                <td style="text-align: right;">
-                                    <form method="post" action="{{ route('admin.changeStateGun', $gun->id) }}">
-                                        @csrf
-                                        <button type="submit" class="btn @if($gun->state == true)btn-success @else btn-danger @endif btn-sm text-white" style="margin-right: 10px; align-items: center;"><img src="/images/active.png" alt=""> @if($gun->state == true)Активна @else Неактивна @endif</button>
-                                    </form>
-                                </td>
-                                <td style="text-align: right;">
-                                    <a  href="{{ route('admin.guns.edit', $gun->id) }}" type="button" class="btn btn-warning btn-sm text-white" style="margin-right: 10px; align-items: center;"><img src="/images/edit.png" alt=""> Редагувати</a>
-                                </td>
-                            </tr>
+                        <tr class="table__col">
+                            <th scope="row">{{ $user->id }}</th>
+                            <td >{{ $user->sname." ".$user->fname." ".$user->pname }}</td>
+                            <td >{{ $user->birthday }}</td>
+                            <td >{{ $user->email }}</td>
+                            <td >{{ $user->phone }}</td>
+                            <td style="text-align: right;" style="display: flex">
+                                <a  href="{{ route('admin.users.show', $user->id) }}" type="button" class="btn btn-success btn-sm text-white" style="margin-right: 10px; align-items: center;"><img src="/images/see.png" alt=""> Передивитися</a>
+                            </td>
+                            <td>
+                                <form method="post" action="{{ route('admin.users.destroy', $user->id) }}">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm text-white" style="margin-right: 10px; align-items: center;"><img src="/images/delete.png" alt=""> Видалити</button>
+                                </form>
+                            </td>
+                        </tr>
                         </tbody>
                     @endforeach
-
                 </table>
                 <div>
-                    {{ $guns->links() }}
+                    {{ $users->links() }}
                 </div>
             </div>
         </div>
-
     </main>
 
 @endsection

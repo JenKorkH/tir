@@ -16,9 +16,16 @@ class AuthController extends Controller
     public function index()
     {
         $gunCount = DB::table('guns')->count();
-        //$certificateCount = DB::table('certificate')->count();
+        $instructorCount = DB::table('instructors')->count();
+        $userCount = DB::table('users')->count();
+        $certificatesCount = DB::table('certificates')->count();
+        $programsCount = DB::table('programs')->count();
         return view('admin.index', [
             'gunCount' => $gunCount,
+            'instructorCount' => $instructorCount,
+            'userCount' => $userCount,
+            'certificatesCount' => $certificatesCount,
+            'programsCount' => $programsCount
         ]);
     }
 
